@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "860470255390",
+    "firebase_url": "https://konehai-android.firebaseio.com",
+    "project_id": "konehai-android",
+    "storage_bucket": "konehai-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860470255390:android:e5fa397ffc5e855a",
+        "android_client_info": {
+          "package_name": "com.kone_hai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860470255390-7nq95jqtvapdsv7fqup9cc4mr75g1hn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC61bBIv9WV4D2UWBDcM_HwBwsWMcVY49s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
