@@ -2,8 +2,13 @@ package com.kone_hai;
 
 import android.util.Log;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
+import com.kone_hai.network.MySingleton;
 
 /**
  * Created by imittal on 2/19/17.
@@ -12,6 +17,7 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
 
     private static final String TAG = "MyFirebaseIIDService";
+    private SessionManager sessionManager = new SessionManager(this);
 
     /**
      * Called if InstanceID token is updated. This may occur if the security of
@@ -34,13 +40,26 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
 
     /**
      * Persist token to third-party servers.
-     *
+     * <p>
      * Modify this method to associate the user's FCM InstanceID token with any server-side account
      * maintained by your application.
      *
      * @param token The new token.
      */
     private void sendRegistrationToServer(String token) {
-        // TODO: Implement this method to send token to your app server.
+        String sendToken = "/saveToken/" + sessionManager.getUserId() + "/" + token;
+        StringRequest request = new StringRequest(Request.Method.GET, sendToken, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        MySingleton.getInstance(this).addToRequestQueue(request);
     }
 }

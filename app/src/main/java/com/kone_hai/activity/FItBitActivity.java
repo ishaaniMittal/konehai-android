@@ -31,7 +31,7 @@ public class FItBitActivity extends AppCompatActivity {
         String url = "https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=2285R9&redirect_uri=http://192.175.5.110:8080/auth/user&scope=activity%20nutrition%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=604800";
 
 
-        Intent intent2 = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+        Intent intent2 = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivityForResult(intent2, RESULT_OK);
 
 
@@ -48,7 +48,7 @@ public class FItBitActivity extends AppCompatActivity {
             Log.d("no code", "no code");
 
             if (code != null) {
-                Log.d("code",code);
+                Log.d("code", code);
             }
         }
     }
@@ -56,7 +56,7 @@ public class FItBitActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Intent resultIntent = new Intent();
-        Log.d("extra",data.getExtras().getString("access_token"));
+        Log.d("extra", data.getExtras().getString("access_token"));
         resultIntent.putExtra(AUTHENTICATION_RESULT_KEY, data.getExtras().getString("access_token"));
         resultIntent.putExtra(CONFIGURATION_VERSION, getIntent().getIntExtra(CONFIGURATION_VERSION, 0));
         setResult(Activity.RESULT_OK, resultIntent);
